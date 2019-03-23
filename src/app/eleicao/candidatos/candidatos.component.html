@@ -1,7 +1,15 @@
 <app-layout>
-        <div class="lista">
-<app-card (result) = "cardClick()" nome="caique" setor="Ti" imagem="https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwiIscj5-pHhAhUlxVkKHQNjBgYQjRx6BAgBEAU&url=https%3A%2F%2Fpurepng.com%2Fphoto%2F1209%2Fdraven-from-league-of-legends&psig=AOvVaw1KISu_8Z4W7FaibMoXTmKT&ust=1553213934744075" ></app-card>
-<app-card nome="pereira" setor="Ti" imagem="http://picsum.photos/150/150?random" ></app-card>
-<app-card nome="zogbi" setor="Ti" imagem="http://picsum.photos/150/150?random" ></app-card>
+        <div class="lista" *ngIf="candidatos.length > 0 else botao">
+
+<app-card *ngFor="let candidato of candidatos" 
+   [nome]="candidato.nome" [setor]="candidato.setor" [imagem]="candidato.imagem" ></app-card>
+
 </div>
+
+
+<ng-template #botao>
+<ion-button color ="success" (click)= "carregar()">carregar candidatos</ion-button>
+
+</ng-template>
+
 </app-layout>

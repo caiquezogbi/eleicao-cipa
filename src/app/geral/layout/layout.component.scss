@@ -3,6 +3,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    
 
     .barra-topo{
         width: 100%;
@@ -13,6 +14,7 @@
         padding: 0 iem;
         background-color:deeppink;
         color: #fff;
+       
 
         span{
             flex-grow: 1;

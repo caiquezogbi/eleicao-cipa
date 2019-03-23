@@ -13,6 +13,7 @@ import { CardComponent } from './card/card.component';
     FormsModule,
   ],
   exports: [
+    CommonModule,
     IonicModule,
     FormsModule,
     LayoutComponent,
