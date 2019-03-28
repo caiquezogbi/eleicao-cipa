@@ -4,6 +4,7 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { LayoutComponent } from './layout/layout.component';
 import { CardComponent } from './card/card.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [LayoutComponent, CardComponent],
@@ -11,13 +12,15 @@ import { CardComponent } from './card/card.component';
     CommonModule,
     IonicModule,
     FormsModule,
+    RouterModule
   ],
   exports: [
     CommonModule,
     IonicModule,
     FormsModule,
     LayoutComponent,
-    CardComponent
+    CardComponent,
+    
   ]
 })
 export class GeralModule { }

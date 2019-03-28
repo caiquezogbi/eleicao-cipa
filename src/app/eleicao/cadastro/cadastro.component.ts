@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { EleicaoService } from '../eleicao.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -7,15 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroComponent implements OnInit {
 
-candidato:any = {}
+candidato: any = {}
 
-  constructor() { }
+  constructor(private Local: Location, private eleicao: EleicaoService) { }
 
   ngOnInit() {}
 
   cadastrar(meuForm){
-    console.log(meuForm.value.nome);
-    console.log(meuForm.value.setor);
+    let _nome = meuForm.value.nome;
+    let _setor = meuForm.value.setor;
+
+    if(_nome &&_setor){
+
+      this.eleicao.addCandidato({
+        nome: _nome, 
+        setor: _setor, 
+        imagem: 'https://picsum.photos/150/150?random'}
+        );
+      this.Local.back();
+
+    } else{
+      alert('voce deve digitar todos os dados')
+    }
+    
+  }
+
+  capturarFoto(){
+
   }
 
 }
