@@ -2,9 +2,13 @@
         <div class="lista" *ngIf="candidatos.length > 0">
 
 <app-card *ngFor="let candidato of candidatos" 
-   [nome]="candidato.nome" [setor]="candidato.setor" [imagem]="candidato.imagem" ></app-card>
+   [nome]="candidato.nome.first" [setor]="candidato.location.city" [imagem]="candidato.picture.medium" ></app-card>
 
 </div>
+
+
+  <!-- <ion-button (click)="navegar()">navegar via service </ion-button>-->
+
 
 <!-- 
 <ng-template #botao>

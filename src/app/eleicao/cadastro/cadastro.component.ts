@@ -38,4 +38,8 @@ candidato: any = {}
 
   }
 
+  voltar(){
+    this.Local.back();
+  }
+
 }

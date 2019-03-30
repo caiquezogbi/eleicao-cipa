@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EleicaoService } from '../eleicao.service';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-candidatos',
@@ -10,7 +12,9 @@ export class CandidatosComponent implements OnInit {
 
   candidatos: any[] = [];
 
-  constructor(private cands: EleicaoService) { }
+  constructor(private cands: EleicaoService, 
+    private meuRouter: Router,
+    private http:HttpClient) { }
 
   ngOnInit() {
     this.loadCandidatos();
@@ -30,7 +34,17 @@ export class CandidatosComponent implements OnInit {
   // }
 
   loadCandidatos(){
-    this.candidatos = this.cands.getCandidatos();
+    //this.candidatos = this.cands.getCandidatos();
+    this.http.get('https://randomuser.me/api/?results=15').subscribe(
+     (users: any) =>{
+       console.log(users);
+     this.candidatos = users.results;
+     }
+    );
+  }
+
+  navegar(){
+  this.meuRouter.navigate(['/eleicao/cadastro']);
   }
 
 }
